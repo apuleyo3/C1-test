@@ -1,0 +1,33 @@
+.mdl-card {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 400;
+    min-height: 200px;
+    overflow: hidden;
+    width: 330px;
+    z-index: 1;
+    position: relative;
+    background: #fff;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+.firebaseui-container {
+    background-color: #fff;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    color: rgba(0,0,0,.87);
+    direction: ltr;
+    font: 16px Roboto,arial,sans-serif;
+    margin: 0 auto;
+    max-width: 360px;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+div#inner-wrapper {
+    padding: 0 0 20px;
+    margin-top: 60px;
+}

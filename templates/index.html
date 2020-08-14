@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+
+  <head>
+    <title>{{title}}</title>
+    <meta charset="utf-8">
+    <meta name="description" content={{description}}>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://cdn.firebase.com/libs/firebaseui/2.1.1/firebaseui.css" />
+    <link href="https://quiz.correlation-one.com/assets/styles/main.css" rel="stylesheet" />
+    <link href="https://quiz.correlation-one.com/assets/styles/flexboxgrid.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rely="stylesheet">
+    {% block css %}
+    <link href="{{ url_for('static', filename='css/cst.css') }}" rel="stylesheet">
+    {% endblock %}
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" type="text/javascript"></script>
+    {% block javascript %}
+    <script src="{{ url_for('static', filename='js/main.js') }}" type="text/javascript"></script>
+    {% endblock %}
+    {% include 'instyles.html' %}
+  </head>
+  <body>
+    {% include 'navigation.html' %}
+        <div class="mdl-card firebaseui-container">
+          <div class="firebaseui-card-header">
+            <!---->
+            <!----><h1 class="c1-auth-title">Please provide your full name and email.</h1>
+          </div>
+          {% block message %}
+          {% if message == 1 %}
+          <div id="message"><div id="message-inner"><strong>You have a completed or inactive assessment</strong></div></div>
+          {% endif %}
+          {% endblock %}
+          <div class="firebaseui-card-content">
+            {% block content %}
+            <div class="formwrapper">
+                <form method="POST" action="/">
+                    <div class="form-field"><span class="input-label">{{ form.firstname.label }} </span><span class="input-wrap">{{ form.firstname(size=20) }}</span></div>
+                    <div class="form-field"><span class="input-label">{{ form.lastname.label }}</span><span class="input-wrap">{{ form.lastname(size=20) }}</span></div>
+                    <div class="form-field"><span class="input-label">{{ form.email.label }} </span><span class="input-wrap">{{ form.email }}</span></div>
+                    {{ form.submit }}
+                </form>
+              </div>
+              {% endblock %}
+          </div>
+          <div class="firebaseui-card-content">
+            <div style="width: 100%;position: relative;display: block;text-align: left;">
+              <!----><div class="default-instructions"><h1 class="c1-auth-title">Instructions:</h1> <div><b>1. </b><span>Do not use the back button on your browser.</span></div>
+  <div><b>2. </b><span>Do not navigate away from the browser session during the assessment.</span></div>
+  <div><b>3. </b><span>Complete the assessment in one session.</span></div>
+  <div><b>4. </b><span>Have a stable internet connection.</span></div>
+  <div><b>5. </b><span>Please note that it is not permitted to copy and/or publish any of the test content. Correlation One uses software which tracks and reports any copying which occurs during the test.</span></div></div>
+              <!---->
+              <br>
+              <!---->
+            </div>
+          </div>
+        </div>
+  </body>
+
+</html>
